@@ -35,17 +35,7 @@ const teamMembers = [
             github: '#',
         },
     },
-    {
-        name: 'Neha',
-        role: 'Technical Lead Manager',
-        image: '/src/assets/team-member-4.jpg',
-        bio: '5+ years of experience in Technical Lead Management',
-        social: {
-            linkedin: '#',
-            twitter: '#',
-            github: '#',
-        },
-    },
+   
 ];
 
 const TeamsSection = () => {
@@ -129,3 +119,4 @@ const TeamsSection = () => {
 };
 
 export default TeamsSection;
+
