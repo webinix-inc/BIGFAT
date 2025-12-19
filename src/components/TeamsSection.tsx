@@ -26,9 +26,9 @@ const teamMembers = [
     },
     {
         name: 'Aditya Raana',
-        role: 'AI & ML Engineer ',
+        role: 'AI & ML Engineer',
         image: '/src/assets/team-member-3.jpg',
-        bio: 'Ex-Cisco, Ex-Google Summer Code of Intern,
+        bio: 'Ex-Cisco, Ex-Google Summer Code of Intern',
         social: {
             linkedin: '#',
             twitter: '#',
@@ -130,5 +130,6 @@ const TeamsSection = () => {
 };
 
 export default TeamsSection;
+
 
 
