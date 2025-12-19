@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Mail, Phone, MessageCircleMore } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -36,14 +36,14 @@ const Contact = () => {
             <div className="grid gap-10 lg:grid-cols-[1.4fr_minmax(0,1fr)] items-start">
               {/* Left: form */}
               <div>
-                <p className="text-xs font-semibold tracking-[0.25em] text-primary mb-3 uppercase">
+                <p className="text-base font-semibold tracking-[0.25em] text-primary mb-3 uppercase">
                   Contact now
                 </p>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                   Have Question? Write a <br className="hidden sm:block" />
                   Message
                 </h1>
-                <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl">
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
                   We will catch you as early as we receive the message.
                 </p>
 
@@ -51,18 +51,18 @@ const Contact = () => {
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
                       <label className="block text-sm font-medium mb-1">Enter name</label>
-                      <Input placeholder="Enter Name" />
+                      <Input placeholder="Enter Name" className="placeholder:text-white/70 placeholder:text-lg" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-1">Enter email</label>
-                      <Input type="email" placeholder="Enter Email" />
+                      <Input type="email" placeholder="Enter Email" className="placeholder:text-white/70 placeholder:text-lg" />
                     </div>
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
                       <label className="block text-sm font-medium mb-1">Enter mobile</label>
-                      <Input placeholder="Enter Mobile" />
+                      <Input placeholder="Enter Mobile" className="placeholder:text-white/70 placeholder:text-lg" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-1">Select requirement</label>
@@ -82,7 +82,7 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium mb-1">Enter your message</label>
-                    <Textarea rows={4} placeholder="Tell us about your use case and goals." />
+                    <Textarea rows={4} placeholder="Tell us about your use case and goals." className="placeholder:text-white/70 placeholder:text-lg" />
                   </div>
 
                   <div className="pt-2">
@@ -106,12 +106,12 @@ const Contact = () => {
                     </div>
                     <div>
                       <h2 className="text-base font-semibold mb-1">Phone</h2>
-                      <p className="text-xs text-muted-foreground mb-2">
+                      <p className="text-base text-muted-foreground mb-2">
                         Assistance hours: Monday – Saturday, 9 am to 5 pm.
                       </p>
-                      <p className="font-medium text-foreground opacity-60">
+                      <p className="font-medium text-foreground text-lg text-white">
                         {/* Phone number to be added */}
-                        Add phone number
+                        +91 8700258968
                       </p>
                     </div>
                   </div>
@@ -124,45 +124,29 @@ const Contact = () => {
                     </div>
                     <div>
                       <h2 className="text-base font-semibold mb-1">Email</h2>
-                      <p className="text-xs text-muted-foreground mb-2">
+                      <p className="text-base text-muted-foreground mb-2">
                         Our support team will get back to you in 24 hours during business days.
                       </p>
-                      <p className="font-medium text-foreground">Email: bigfatailabs@bigfat.ai</p>
+                      <p className="font-medium text-foreground text-lg text-white">Email: bigfatailabs@bigfat.ai</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="glass-card rounded-2xl border border-border/40 bg-background/60 backdrop-blur px-6 py-5 shadow-[0_18px_45px_rgba(15,23,42,0.7)]">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 rounded-full bg-primary/10 p-2 text-primary">
-                      <MessageCircleMore className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h2 className="text-base font-semibold mb-1">Skype</h2>
-                      <p className="text-xs text-muted-foreground mb-2">
-                        We are online: Monday – Friday, 9 am to 5 pm.
-                      </p>
-                      <p className="font-medium text-foreground opacity-60">
-                        {/* Skype / chat handle to be added */}
-                        Add Skype / chat handle
-                      </p>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
 
             {/* Offices section at the end */}
             <div className="mt-20 max-w-4xl mx-auto text-center">
-              <p className="text-xs font-semibold tracking-[0.25em] text-primary mb-2 uppercase">
+              <p className="text-base font-semibold tracking-[0.25em] text-primary mb-2 uppercase">
                 Our locations
               </p>
               <h2 className="text-3xl md:text-4xl font-bold mb-10">Our Office</h2>
 
               <div className="grid gap-8 md:grid-cols-2 text-left">
                 {/* Corporate office card */}
-                <div className="relative group">
-                  <div className="glass-card rounded-3xl border border-border/40 px-6 sm:px-8 py-8 bg-background/80 backdrop-blur transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_22px_60px_rgba(56,189,248,0.3)]">
+                <div className="relative group h-full">
+                  <div className="glass-card h-full rounded-3xl border border-border/40 px-6 sm:px-8 py-8 bg-background/80 backdrop-blur transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_22px_60px_rgba(56,189,248,0.3)]">
                     <div className="w-16 h-8 rounded-full bg-gradient-to-r from-glow-cyan to-primary mb-4 flex items-center justify-center text-[10px] font-semibold tracking-[0.25em] text-white uppercase">
                       India
                     </div>
@@ -170,7 +154,7 @@ const Contact = () => {
                       Corporate Office
                     </p>
                     <p className="font-semibold text-lg mb-1">World Trade Tower</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base font-medium text-muted-foreground leading-relaxed">
                       Sector 16, Noida,
                       <br />
                       Uttar Pradesh – 201301
@@ -180,8 +164,8 @@ const Contact = () => {
                 </div>
 
                 {/* Registered office card */}
-                <div className="relative group">
-                  <div className="glass-card rounded-3xl border border-border/40 px-6 sm:px-8 py-8 bg-background/80 backdrop-blur transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_22px_60px_rgba(56,189,248,0.3)]">
+                <div className="relative group h-full">
+                  <div className="glass-card h-full rounded-3xl border border-border/40 px-6 sm:px-8 py-8 bg-background/80 backdrop-blur transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_22px_60px_rgba(56,189,248,0.3)]">
                     <div className="w-16 h-8 rounded-full bg-gradient-to-r from-glow-cyan to-primary mb-4 flex items-center justify-center text-[10px] font-semibold tracking-[0.25em] text-white uppercase">
                       India
                     </div>
@@ -189,7 +173,7 @@ const Contact = () => {
                       Registered Office
                     </p>
                     <p className="font-semibold text-lg mb-1">Innov8 - 3rd Floor, Orchid Centre</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base font-medium text-muted-foreground leading-relaxed">
                       Gurugram, Haryana 122022
                     </p>
                   </div>

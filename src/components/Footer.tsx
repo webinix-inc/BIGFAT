@@ -39,7 +39,6 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#home" className="flex items-center gap-3 mb-4">
-              <img src="/src/assets/logo.png" alt="BIGFAT AI LABS" className="w-10 h-10" />
               <span className="font-display font-bold text-xl">BIGFAT AI LABS</span>
             </a>
             <p className="text-muted-foreground mb-4 max-w-sm">
