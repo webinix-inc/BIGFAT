@@ -25,10 +25,21 @@ const teamMembers = [
         },
     },
     {
-        name: 'Navin Hemani',
+        name: 'Aditya Raana',
+        role: 'AI & ML Engineer ',
+        image: '/src/assets/team-member-3.jpg',
+        bio: 'Ex-Cisco, Ex-Google Summer Code of Intern,
+        social: {
+            linkedin: '#',
+            twitter: '#',
+            github: '#',
+        },
+    },
+    {
+        name: 'Abhi Bhardwaj',
         role: 'Business Developemt',
         image: '/src/assets/team-member-3.jpg',
-        bio: 'ISB Hyderabad Alumini witn 12+ years of experience in Buisness Development',
+        bio: '6+ experience in Buisness Development',
         social: {
             linkedin: '#',
             twitter: '#',
@@ -119,4 +130,5 @@ const TeamsSection = () => {
 };
 
 export default TeamsSection;
+
 
