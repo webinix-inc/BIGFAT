@@ -1,8 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import aiHero from '@/assets/ai-hero1.png';
+import modelGlow from '@/assets/Model Glow.svg';
+import elements from '@/assets/Elements.svg';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient orbs */}
@@ -39,7 +44,12 @@ const HeroSection = () => {
             <div
               className="flex flex-wrap gap-4 animate-fade-up"
               style={{ animationDelay: '0.4s' }}>
-              <Button variant="outline" size="lg" className="rounded-full bg-foreground/5 border-foreground/20 hover:bg-foreground/10">
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full bg-foreground/5 border-foreground/20 hover:bg-foreground/10"
+                onClick={() => navigate('/contact')}
+              >
                 Get Started
                 <ArrowRight className="w-5 h-5" />
               </Button>
@@ -54,11 +64,14 @@ const HeroSection = () => {
             style={{ animationDelay: '0.3s' }}>
             <div className="relative overflow-visible border-0 outline-none ring-0 shadow-none" style={{ boxShadow: 'none' }}>
               {/* Background Glow Layer */}
-              <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 1 }}>
+              <div
+                className="absolute inset-0 flex items-center justify-center transform -translate-y-14 md:-translate-y-20"
+                style={{ zIndex: 1 }}
+              >
                 <img
-                  src="/src/assets/Model Glow.svg"
+                  src={modelGlow}
                   alt=""
-                  className="w-full h-auto opacity-80"
+                  className="w-full h-auto opacity-90 brightness-125"
                   style={{ maxWidth: '980px' }}
                 />
               </div>
@@ -80,13 +93,16 @@ const HeroSection = () => {
                 />
               </div>
 
-              {/* Elements/Particles Overlay Layer - Positioned to the right */}
-              <div className="absolute inset-0 flex items-center justify-end pointer-events-none" style={{ zIndex: 3, right: '0%' }}>
+              {/* Elements/Particles Overlay Layer - Positioned to the right, slightly above center */}
+              <div
+                className="absolute inset-0 flex items-center justify-end pointer-events-none transform -translate-y-14 md:-translate-y-20"
+                style={{ zIndex: 3, right: '0%' }}
+              >
                 <img
-                  src="/src/assets/Elements.svg"
+                  src={elements}
                   alt=""
-                  className="h-full opacity-60"
-                  style={{ maxWidth: '597px', mixBlendMode: 'screen' }}
+                  className="h-full opacity-80 brightness-125"
+                  style={{ maxWidth: '540px', mixBlendMode: 'screen', paddingRight: '16px' }}
                 />
               </div>
 

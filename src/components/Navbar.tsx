@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'AI Solutions', href: '#solutions' },
-  { name: 'About', href: '#about' },
-  { name: 'Products', href: '#products' },
-  { name: 'Team', href: '#team' },
-  { name: 'Projects', href: '#projects' },
+  { name: 'Home', href: '/#home' },
+  { name: 'AI Solutions', href: '/#solutions' },
+  { name: 'About', href: '/#about' },
+  { name: 'Products', href: '/#products' },
+  { name: 'Team', href: '/#team' },
+  { name: 'Projects', href: '/#projects' },
 ];
 
 const Navbar = () => {
@@ -29,21 +30,20 @@ const Navbar = () => {
         }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#home" className="flex items-center gap-3">
-          <img src="/src/assets/logo.png" alt="BIGFAT AI LABS" className="w-10 h-10" />
+        {/* Logo text only (image removed as requested) */}
+        <Link to="/#home" className="flex items-center gap-3">
           <span className="font-display font-bold text-xl text-foreground">BIGFAT AI LABS</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav - Centered with rounded border */}
         <nav className="hidden lg:flex items-center gap-1 px-6 py-2 rounded-full border border-foreground/10 bg-background/40 backdrop-blur-sm">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="px-4 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium rounded-full hover:bg-foreground/5">
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -75,14 +75,14 @@ const Navbar = () => {
         <div className="lg:hidden nav-glass mt-2 mx-4 rounded-xl p-4 animate-fade-up">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <Button variant="hero" className="mt-2">
               Request a Quote
