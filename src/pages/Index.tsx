@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import SolutionsSection from '@/components/SolutionsSection';
 import WhyChooseSection from '@/components/WhyChooseSection';
 import ProductsSection from '@/components/ProductsSection';
+import BlogSection from '@/components/BlogSection';
 import OurClientsSection from '@/components/OurClientsSection';
 import TeamsSection from '@/components/TeamsSection';
 import CTASection from '@/components/CTASection';
@@ -25,11 +26,12 @@ const Index = () => {
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <ParticleBackground />
         <Navbar />
-        <main>
+        <main id="home">
           <HeroSection />
           <SolutionsSection />
           <WhyChooseSection />
           <ProductsSection />
+          <BlogSection />
           <OurClientsSection />
           <TeamsSection />
           <CTASection />

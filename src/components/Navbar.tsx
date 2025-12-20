@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Products', href: '/#products' },
   { name: 'Team', href: '/#team' },
   { name: 'Projects', href: '/#projects' },
+  { name: 'Blog', href: '/#blog' },
 ];
 
 const Navbar = () => {

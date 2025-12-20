@@ -5,24 +5,27 @@ const ScrollToHashElement = () => {
     const { hash, pathname } = useLocation();
     const navigate = useNavigate();
 
+    // 1. Scroll to top on pathname change (if no hash)
+    useEffect(() => {
+        if (!hash) {
+            window.scrollTo(0, 0);
+        }
+    }, [pathname]); // Only trigger when pathname changes
+
+    // 2. Handle hash scrolling
     useEffect(() => {
         if (hash) {
             const element = document.getElementById(hash.replace("#", ""));
 
-            // Function to remove hash using React Router to keep state in sync
             const removeHash = () => {
                 navigate(pathname, { replace: true });
             };
 
             if (element) {
                 element.scrollIntoView({ behavior: "smooth", block: "start" });
-                // Remove hash after a small delay to ensure scroll is registered/started
-                // and to avoid interfering with immediate browser behavior
-                setTimeout(() => {
-                    removeHash();
-                }, 100);
+                setTimeout(removeHash, 100);
             } else {
-                // Retry after a short delay to allow for rendering (e.g. lazy loaded content)
+                // Retry for dynamic content
                 setTimeout(() => {
                     const el = document.getElementById(hash.replace("#", ""));
                     if (el) {
@@ -32,7 +35,7 @@ const ScrollToHashElement = () => {
                 }, 100);
             }
         }
-    }, [hash, pathname, navigate]);
+    }, [hash, navigate, pathname]);
 
     return null;
 };

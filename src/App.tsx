@@ -7,7 +7,10 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import ScrollToHashElement from "./components/ScrollToHashElement";
+import ChatWidget from "./components/Chat/ChatWidget";
 
 const queryClient = new QueryClient();
 
@@ -19,10 +22,13 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToHashElement />
+          <ChatWidget />
           <Routes>
             <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
