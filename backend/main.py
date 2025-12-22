@@ -13,6 +13,11 @@ app = FastAPI()
 # Enable CORS for frontend communication
 origins = [
     "http://localhost:5173",
+    "http://localhost:8080",
+    "http://localhost:3000",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:8080",
+    "http://127.0.0.1:3000",
     "https://www.bigfat.ai",
     "https://bigfat.ai",
 ]
@@ -24,6 +29,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.middleware("http")
+async def log_requests(request, call_next):
+    origin = request.headers.get("origin")
+    print(f"Incoming request from origin: {origin}")
+    response = await call_next(request)
+    return response
 
 # API Keys
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
