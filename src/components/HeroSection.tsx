@@ -106,36 +106,36 @@ const HeroSection = () => {
                 />
               </div>
 
-              {/* Floating elements - positioned around the humanoid */}
-              <div className="absolute top-10 left-0 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '0s' }}>
-                <span className="text-sm font-medium">Contextual AI</span>
+              {/* Floating elements - positioned responsively around the humanoid */}
+              <div className="absolute top-[5%] left-[2%] md:top-[8%] md:left-[10%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '0s' }}>
+                <span className="text-[10px] md:text-sm font-medium">Contextual AI</span>
               </div>
-              <div className="absolute top-20 right-10 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '0.5s' }}>
-                <span className="text-sm font-medium">Business Chat Bot</span>
+              <div className="absolute top-[10%] right-[5%] md:top-[12%] md:right-[15%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '0.5s' }}>
+                <span className="text-[10px] md:text-sm font-medium">Business Chat Bot</span>
               </div>
-              <div className="absolute top-40 left-10 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '1s' }}>
-                <span className="text-sm font-medium">Fine Tuning</span>
+              <div className="absolute top-[25%] left-[5%] md:top-[28%] md:left-[15%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '1s' }}>
+                <span className="text-[10px] md:text-sm font-medium">Fine Tuning</span>
               </div>
-              <div className="absolute top-60 right-5 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '1.5s' }}>
-                <span className="text-sm font-medium">Custom Development</span>
+              <div className="absolute top-[45%] right-[2%] md:top-[48%] md:right-[10%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '1.5s' }}>
+                <span className="text-[10px] md:text-sm font-medium">Custom Development</span>
               </div>
-              <div className="absolute bottom-60 left-5 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '2s' }}>
-                <span className="text-sm font-medium">Voice Agents</span>
+              <div className="absolute bottom-[45%] left-[2%] md:bottom-[48%] md:left-[10%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '2s' }}>
+                <span className="text-[10px] md:text-sm font-medium">Voice Agents</span>
               </div>
-              <div className="absolute bottom-40 right-10 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '2.5s' }}>
-                <span className="text-sm font-medium">AI Mobile App</span>
+              <div className="absolute bottom-[30%] right-[5%] md:bottom-[35%] md:right-[15%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '2.5s' }}>
+                <span className="text-[10px] md:text-sm font-medium">AI Mobile App</span>
               </div>
-              <div className="absolute bottom-20 left-10 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '3s' }}>
-                <span className="text-sm font-medium">Contextual AI Agent</span>
+              <div className="absolute bottom-[15%] left-[5%] md:bottom-[20%] md:left-[15%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '3s' }}>
+                <span className="text-[10px] md:text-sm font-medium">Contextual AI Agent</span>
               </div>
-              <div className="absolute bottom-10 right-20 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '3.5s' }}>
-                <span className="text-sm font-medium">RAG</span>
+              <div className="absolute bottom-[5%] right-[15%] md:bottom-[10%] md:right-[20%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '3.5s' }}>
+                <span className="text-[10px] md:text-sm font-medium">RAG</span>
               </div>
-              <div className="absolute top-1/3 left-5 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '4s' }}>
-                <span className="text-sm font-medium">AI Agents</span>
+              <div className="absolute top-[35%] left-[2%] md:top-[38%] md:left-[10%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '4s' }}>
+                <span className="text-[10px] md:text-sm font-medium">AI Agents</span>
               </div>
-              <div className="absolute top-2/3 right-15 glass-card px-4 py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '4.5s' }}>
-                <span className="text-sm font-medium">LLM</span>
+              <div className="absolute top-[65%] right-[10%] md:top-[68%] md:right-[15%] glass-card px-2 py-1 md:px-4 md:py-2 rounded-lg animate-float border-0" style={{ zIndex: 4, animationDelay: '4.5s' }}>
+                <span className="text-[10px] md:text-sm font-medium">LLM</span>
               </div>
             </div>
           </div>
