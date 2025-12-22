@@ -109,7 +109,7 @@ const Contact = () => {
                       <p className="text-base text-muted-foreground mb-2">
                         Assistance hours: Monday – Saturday, 9 am to 5 pm.
                       </p>
-                      <p className="font-medium text-foreground text-lg text-white">
+                      <p className="font-medium text-foreground text-base text-white">
                         {/* Phone number to be added */}
                         +91 8700258968
                       </p>
@@ -127,7 +127,7 @@ const Contact = () => {
                       <p className="text-base text-muted-foreground mb-2">
                         Our support team will get back to you in 24 hours during business days.
                       </p>
-                      <p className="font-medium text-foreground text-lg text-white">Email: bigfatailabs@bigfat.ai</p>
+                      <p className="font-medium text-foreground text-base text-white">Email: bigfatailabs@bigfat.ai</p>
                     </div>
                   </div>
                 </div>
