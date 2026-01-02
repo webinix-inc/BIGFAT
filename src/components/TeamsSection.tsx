@@ -46,7 +46,7 @@ const teamMembers = [
             github: '#',
         },
     },
-   
+
 ];
 
 const TeamsSection = () => {

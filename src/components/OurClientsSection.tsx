@@ -1,12 +1,18 @@
 import { motion } from 'framer-motion';
+import aiimsLogo from '@/assets/AIIMS Anaesthesia.png';
+import creativePujariLogo from '@/assets/Creative Pujari.png';
+import sqrftLogo from '@/assets/SQRFT.png';
+import shilpaniLogo from '@/assets/Shilpani art and craft.jpg';
+import travelPujariLogo from '@/assets/Travel pujari.png';
+import wakadeLogo from '@/assets/Wakade.jpeg';
 
 const clients = [
-    { name: 'Client 1', logo: '/src/assets/client-logo-1.png' },
-    { name: 'Client 2', logo: '/src/assets/client-logo-2.png' },
-    { name: 'Client 3', logo: '/src/assets/client-logo-3.png' },
-    { name: 'Client 4', logo: '/src/assets/client-logo-4.png' },
-    { name: 'Client 5', logo: '/src/assets/client-logo-5.png' },
-    { name: 'Client 6', logo: '/src/assets/client-logo-6.png' },
+    { name: 'AIIMS Anaesthesia', logo: aiimsLogo },
+    { name: 'Creative Pujari', logo: creativePujariLogo },
+    { name: 'SQRFT', logo: sqrftLogo },
+    { name: 'Shilpani Art and Craft', logo: shilpaniLogo },
+    { name: 'Travel Pujari', logo: travelPujariLogo },
+    { name: 'Wakade', logo: wakadeLogo },
 ];
 
 const OurClientsSection = () => {
@@ -38,13 +44,18 @@ const OurClientsSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="flex items-center justify-center p-6 glass-card rounded-xl hover:scale-105 transition-transform duration-300"
+                            className="flex flex-col items-center justify-center p-6 glass-card rounded-xl hover:scale-105 transition-transform duration-300"
                         >
-                            <img
-                                src={client.logo}
-                                alt={client.name}
-                                className="w-full h-auto max-w-[120px] opacity-70 hover:opacity-100 transition-opacity"
-                            />
+                            <div className="relative w-full aspect-square flex items-center justify-center mb-4">
+                                <img
+                                    src={client.logo}
+                                    alt={client.name}
+                                    className="max-w-[120px] max-h-[80px] w-auto h-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                                />
+                            </div>
+                            <span className="text-base font-medium text-muted-foreground text-center">
+                                {client.name}
+                            </span>
                         </motion.div>
                     ))}
                 </div>
@@ -54,3 +65,4 @@ const OurClientsSection = () => {
 };
 
 export default OurClientsSection;
+
