@@ -1,20 +1,30 @@
 import { motion } from 'framer-motion';
-import aiimsLogo from '@/assets/AIIMS Anaesthesia.png';
+import aiimsLogo from '@/assets/AIIMS ANAESTHESIA.jpeg';
 import creativePujariLogo from '@/assets/Creative Pujari.png';
 import sqrftLogo from '@/assets/SQRFT.png';
-import shilpaniLogo from '@/assets/Shilpani art and craft.jpg';
+import shilpaniLogo from '@/assets/Shilpani art and craft.png';
 import travelPujariLogo from '@/assets/Travel pujari.png';
-import wakadeLogo from '@/assets/Wakade.jpeg';
+import wakadeLogo from '@/assets/Wakade Classes.jpeg';
 import dookLogo from '@/assets/Dook International.png';
+import aiobLogo from '@/assets/AIOB.jpeg';
+import akjLogo from '@/assets/AKJ Academy.webp';
+import hallekLogo from '@/assets/Hallek Technologies.jpeg';
+import cosmosLogo from '@/assets/Cosmos Bakery.jpeg';
+import houseLogo from '@/assets/House Technologies.jpeg';
 
 const clients = [
     { name: 'Dook International', logo: dookLogo },
+    { name: 'AIOB', logo: aiobLogo },
+    { name: 'AKJ Academy', logo: akjLogo },
+    { name: 'Hallek Technologies', logo: hallekLogo },
+    { name: 'Cosmos Bakery', logo: cosmosLogo },
+    { name: 'House Technologies', logo: houseLogo },
     { name: 'AIIMS Anaesthesia', logo: aiimsLogo },
     { name: 'Creative Pujari', logo: creativePujariLogo },
     { name: 'SQRFT', logo: sqrftLogo },
     { name: 'Shilpani Art and Craft', logo: shilpaniLogo },
     { name: 'Travel Pujari', logo: travelPujariLogo },
-    { name: 'Wakade', logo: wakadeLogo },
+    { name: 'Wakade Classes', logo: wakadeLogo },
 ];
 
 const OurClientsSection = () => {
@@ -37,34 +47,51 @@ const OurClientsSection = () => {
                     </p>
                 </div>
 
-                {/* Client Logos Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-                    {clients.map((client, index) => (
-                        <motion.div
-                            key={client.name}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="glass-card group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-primary/10 border border-foreground/10"
-                        >
-                            {/* Logo Container (Top Half) */}
-                            <div className="relative h-40 flex items-center justify-center p-8 bg-foreground/3 overflow-hidden">
-                                <img
-                                    src={client.logo}
-                                    alt={client.name}
-                                    className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                />
-                            </div>
+                {/* Client Logos Marquee */}
+                <div className="relative flex overflow-hidden py-8">
+                    <motion.div
+                        className="flex whitespace-nowrap gap-8 items-center"
+                        animate={{
+                            x: ["0%", "-50%"],
+                        }}
+                        transition={{
+                            x: {
+                                repeat: Infinity,
+                                repeatType: "loop",
+                                duration: 30,
+                                ease: "linear",
+                            },
+                        }}
+                    >
+                        {/* Double the list for seamless looping */}
+                        {[...clients, ...clients].map((client, index) => (
+                            <div
+                                key={`${client.name}-${index}`}
+                                className="inline-block px-4 shrink-0 transition-all duration-500"
+                            >
+                                <div className="group flex flex-col w-40 h-52 hover:translate-y-[-8px] transition-all duration-500">
+                                    {/* Logo Tile (Solid White) */}
+                                    <div className={`aspect-square bg-white rounded-2xl flex items-center justify-center relative overflow-hidden border border-white shadow-[0_10px_30px_rgba(0,0,0,0.15)] group-hover:shadow-[0_20px_50px_rgba(var(--primary-rgb),0.2)] transition-all duration-500 ${(client.name.includes('SQRFT') || client.name.includes('Shilpani') || client.name.includes('Cosmos') || client.name.includes('House')) ? 'p-1.5' : 'p-4'
+                                        }`}>
+                                        <img
+                                            src={client.logo}
+                                            alt={client.name}
+                                            className={`w-full h-full object-contain group-hover:scale-125 transition-transform duration-700 relative z-10 ${(client.name.includes('SQRFT') || client.name.includes('Shilpani') || client.name.includes('Cosmos') || client.name.includes('House')) ? 'contrast-[1.15] brightness-[1.02] saturate-[1.1]' : ''
+                                                }`}
+                                        />
+                                    </div>
 
-                            {/* Content Container (Bottom Half) */}
-                            <div className="p-5 flex flex-col items-center justify-center bg-background/20 flex-grow">
-                                <h3 className="text-base font-display font-bold text-center group-hover:text-primary transition-colors duration-300 line-clamp-1">
-                                    {client.name}
-                                </h3>
+                                    {/* Name Label (Dark Theme) */}
+                                    <div className="mt-4 px-1 pb-2">
+                                        <h3 className="text-xs font-display font-bold text-center text-white/90 group-hover:text-primary transition-colors duration-300 uppercase tracking-wider leading-tight line-clamp-1">
+                                            {client.name}
+                                        </h3>
+                                        <div className="w-8 group-hover:w-full h-[2px] bg-gradient-to-r from-primary via-secondary to-transparent mx-auto mt-2 transition-all duration-500 opacity-80 rounded-full" />
+                                    </div>
+                                </div>
                             </div>
-                        </motion.div>
-                    ))}
+                        ))}
+                    </motion.div>
                 </div>
             </div>
         </section>
