@@ -44,18 +44,23 @@ const OurClientsSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="flex flex-col items-center justify-center p-6 glass-card rounded-xl hover:scale-105 transition-transform duration-300"
+                            className="glass-card group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-primary/10 border border-foreground/10"
                         >
-                            <div className="relative w-full aspect-square flex items-center justify-center mb-4">
+                            {/* Logo Container (Top Half) */}
+                            <div className="relative h-40 flex items-center justify-center p-8 bg-foreground/3 overflow-hidden">
                                 <img
                                     src={client.logo}
                                     alt={client.name}
-                                    className="max-w-[120px] max-h-[80px] w-auto h-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                                    className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
                                 />
                             </div>
-                            <span className="text-base font-medium text-muted-foreground text-center">
-                                {client.name}
-                            </span>
+
+                            {/* Content Container (Bottom Half) */}
+                            <div className="p-5 flex flex-col items-center justify-center bg-background/20 flex-grow">
+                                <h3 className="text-base font-display font-bold text-center group-hover:text-primary transition-colors duration-300 line-clamp-1">
+                                    {client.name}
+                                </h3>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
