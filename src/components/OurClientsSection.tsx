@@ -21,7 +21,7 @@ const clients = [
     { name: 'House Technologies', logo: houseLogo },
     { name: 'AIIMS Anaesthesia', logo: aiimsLogo },
     { name: 'Creative Pujari', logo: creativePujariLogo },
-    { name: 'SQRFT', logo: sqrftLogo },
+    { name: 'SQRFT Infratech', logo: sqrftLogo },
     { name: 'Shilpani Art and Craft', logo: shilpaniLogo },
     { name: 'Travel Pujari', logo: travelPujariLogo },
     { name: 'Wakade Classes', logo: wakadeLogo },
