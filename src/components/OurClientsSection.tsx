@@ -69,9 +69,8 @@ const OurClientsSection = () => {
                                 key={`${client.name}-${index}`}
                                 className="inline-block px-4 shrink-0 transition-all duration-500"
                             >
-                                <div className="group flex flex-col w-40 h-52 hover:translate-y-[-8px] transition-all duration-500">
-                                    {/* Logo Tile (Solid White) */}
-                                    <div className={`aspect-square bg-white rounded-2xl flex items-center justify-center relative overflow-hidden border border-white shadow-[0_10px_30px_rgba(0,0,0,0.15)] group-hover:shadow-[0_20px_50px_rgba(var(--primary-rgb),0.2)] transition-all duration-500 ${(client.name.includes('SQRFT') || client.name.includes('Shilpani') || client.name.includes('Cosmos') || client.name.includes('House')) ? 'p-1.5' : 'p-4'
+                                <div className="group flex flex-col w-32 h-44 hover:translate-y-[-4px] transition-all duration-500">
+                                    <div className={`aspect-square bg-white rounded-xl flex items-center justify-center relative overflow-hidden border border-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] group-hover:shadow-[0_15px_30px_rgba(var(--primary-rgb),0.15)] transition-all duration-500 ${(client.name.includes('SQRFT') || client.name.includes('Shilpani') || client.name.includes('Cosmos') || client.name.includes('House')) ? 'p-1' : 'p-3'
                                         }`}>
                                         <img
                                             src={client.logo}
@@ -82,11 +81,11 @@ const OurClientsSection = () => {
                                     </div>
 
                                     {/* Name Label (Dark Theme) */}
-                                    <div className="mt-4 px-1 pb-2">
-                                        <h3 className="text-xs font-display font-bold text-center text-white/90 group-hover:text-primary transition-colors duration-300 uppercase tracking-wider leading-tight line-clamp-1">
+                                    <div className="mt-3 px-1 pb-1">
+                                        <h3 className="text-[10px] font-display font-bold text-center text-white/90 group-hover:text-primary transition-colors duration-300 uppercase tracking-wider leading-tight line-clamp-1">
                                             {client.name}
                                         </h3>
-                                        <div className="w-8 group-hover:w-full h-[2px] bg-gradient-to-r from-primary via-secondary to-transparent mx-auto mt-2 transition-all duration-500 opacity-80 rounded-full" />
+                                        <div className="w-6 group-hover:w-full h-[1.5px] bg-gradient-to-r from-primary via-secondary to-transparent mx-auto mt-1.5 transition-all duration-500 opacity-80 rounded-full" />
                                     </div>
                                 </div>
                             </div>
