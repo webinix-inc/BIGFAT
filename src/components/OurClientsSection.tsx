@@ -82,7 +82,7 @@ const OurClientsSection = () => {
 
                                     {/* Name Label (Dark Theme) */}
                                     <div className="mt-3 px-1 pb-1">
-                                        <h3 className="text-[10px] font-display font-bold text-center text-white/90 group-hover:text-primary transition-colors duration-300 uppercase tracking-wider leading-tight line-clamp-1">
+                                        <h3 className="text-[9px] font-display font-bold text-center text-white/90 group-hover:text-primary transition-colors duration-300 uppercase tracking-wider leading-tight">
                                             {client.name}
                                         </h3>
                                         <div className="w-6 group-hover:w-full h-[1.5px] bg-gradient-to-r from-primary via-secondary to-transparent mx-auto mt-1.5 transition-all duration-500 opacity-80 rounded-full" />
