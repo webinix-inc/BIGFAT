@@ -5,8 +5,10 @@ import sqrftLogo from '@/assets/SQRFT.png';
 import shilpaniLogo from '@/assets/Shilpani art and craft.jpg';
 import travelPujariLogo from '@/assets/Travel pujari.png';
 import wakadeLogo from '@/assets/Wakade.jpeg';
+import dookLogo from '@/assets/Dook International.png';
 
 const clients = [
+    { name: 'Dook International', logo: dookLogo },
     { name: 'AIIMS Anaesthesia', logo: aiimsLogo },
     { name: 'Creative Pujari', logo: creativePujariLogo },
     { name: 'SQRFT', logo: sqrftLogo },
