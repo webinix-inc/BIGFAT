@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Twitter } from 'lucide-react';
+import gopalKapoorPhoto from '@/assets/Gopal Kapoor.jpeg';
 
 const teamMembers = [
     {
         name: 'Gopal Kapoor',
         role: 'Co-Founder',
-        image: '/src/assets/team-member-1.jpg',
+        image: gopalKapoorPhoto,
         bio: 'Visionary leader with 15+ years in Buisness and Product',
         social: {
             linkedin: '#',
@@ -87,9 +88,17 @@ const TeamsSection = () => {
                             {/* Image */}
                             <div className="relative mb-4 overflow-hidden rounded-xl">
                                 <div className="aspect-square bg-gradient-to-br from-glow-cyan/20 to-glow-violet/20 flex items-center justify-center">
-                                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-glow-cyan to-glow-violet flex items-center justify-center text-4xl font-bold">
-                                        {member.name.split(' ').map(n => n[0]).join('')}
-                                    </div>
+                                    {member.image ? (
+                                        <img 
+                                            src={member.image} 
+                                            alt={member.name}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    ) : (
+                                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-glow-cyan to-glow-violet flex items-center justify-center text-4xl font-bold">
+                                            {member.name.split(' ').map(n => n[0]).join('')}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
