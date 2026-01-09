@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Twitter } from 'lucide-react';
 import gopalKapoorPhoto from '@/assets/Gopal Kapoor.jpeg';
+import amiteshMauryaPhoto from '@/assets/Amitesh Maurya.jpeg';
+import abhiBhardwajPhoto from '@/assets/Abhi Bhardwaj.jpeg';
 
 const teamMembers = [
     {
@@ -17,7 +19,7 @@ const teamMembers = [
     {
         name: 'Amitesh Maurya',
         role: 'Co-Founder',
-        image: '/src/assets/team-member-2.jpg',
+        image: amiteshMauryaPhoto,
         bio: 'NIT Trichy graduate With 8+ years of experience in IT services and  enterprise GenAI products and custom LLM applications to AI agents, RAG systems',
         social: {
             linkedin: '#',
@@ -39,7 +41,7 @@ const teamMembers = [
     {
         name: 'Abhi Bhardwaj',
         role: 'Business Developemt',
-        image: '/src/assets/team-member-3.jpg',
+        image: abhiBhardwajPhoto,
         bio: '6+ experience in Buisness Development',
         social: {
             linkedin: '#',
@@ -89,8 +91,8 @@ const TeamsSection = () => {
                             <div className="relative mb-4 overflow-hidden rounded-xl">
                                 <div className="aspect-square bg-gradient-to-br from-glow-cyan/20 to-glow-violet/20 flex items-center justify-center">
                                     {member.image ? (
-                                        <img 
-                                            src={member.image} 
+                                        <img
+                                            src={member.image}
                                             alt={member.name}
                                             className="w-full h-full object-cover"
                                         />
