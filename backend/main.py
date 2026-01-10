@@ -1,124 +1,196 @@
-from fastapi import FastAPI, HTTPException
+"""
+Main FastAPI application.
+Production-ready chatbot service with MongoDB integration.
+"""
+
+from contextlib import asynccontextmanager
+from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import os
-import requests
-from dotenv import load_dotenv
+from fastapi.responses import JSONResponse
+from app.core.config import settings
+from app.core.database import db_manager
+from app.core.cache import cache_manager
+from app.api.v1 import api_router
+from app.utils.logger import setup_logging, get_logger
+import time
 
-# Load environment variables
-load_dotenv()
+# Setup logging
+setup_logging()
+logger = get_logger(__name__)
 
-app = FastAPI()
 
-# Enable CORS for frontend communication
-origins = [
-    "http://localhost:5173",
-    "http://localhost:8080",
-    "http://localhost:3000",
-    "http://127.0.0.1:5173",
-    "http://127.0.0.1:8080",
-    "http://127.0.0.1:3000",
-    "https://www.bigfat.ai",
-    "https://bigfat.ai",
-]
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Lifespan context manager for application startup and shutdown.
+    Handles database connections and cleanup.
+    """
+    # Startup
+    logger.info(f"Starting {settings.APP_NAME} v{settings.APP_VERSION}")
+    logger.info(f"Environment: {settings.ENVIRONMENT}")
+    
+    try:
+        # Connect to MongoDB
+        try:
+            await db_manager.connect()
+            logger.info("MongoDB connection established")
+        except Exception as e:
+            logger.warning(f"MongoDB connection failed: {e}")
+            logger.warning("Application will continue in degraded mode without database")
+        
+        # Connect to Redis if enabled
+        if settings.REDIS_ENABLED:
+            await cache_manager.connect()
+            if cache_manager.is_connected:
+                logger.info("Redis connection established")
+            else:
+                logger.warning("Redis connection failed, caching disabled")
+        else:
+            logger.info("Redis is disabled, skipping connection")
+        
+        logger.info("Application startup complete")
+        
+    except Exception as e:
+        logger.error(f"Error during startup: {e}")
+        raise
+    
+    yield
+    
+    # Shutdown
+    logger.info("Shutting down application...")
+    
+    try:
+        # Disconnect from MongoDB
+        await db_manager.disconnect()
+        logger.info("MongoDB connection closed")
+        
+        # Disconnect from Redis
+        if cache_manager.is_connected:
+            await cache_manager.disconnect()
+            logger.info("Redis connection closed")
+        
+        logger.info("Application shutdown complete")
+        
+    except Exception as e:
+        logger.error(f"Error during shutdown: {e}")
 
+
+# Create FastAPI application
+app = FastAPI(
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
+    description="Production-ready chatbot service for BIGFAT AI Labs",
+    docs_url="/docs" if settings.is_development else None,
+    redoc_url="/redoc" if settings.is_development else None,
+    lifespan=lifespan
+)
+
+
+# CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+
+# Request logging middleware
 @app.middleware("http")
-async def log_requests(request, call_next):
-    origin = request.headers.get("origin")
-    print(f"Incoming request from origin: {origin}")
+async def log_requests(request: Request, call_next):
+    """Log all incoming requests and their processing time."""
+    start_time = time.time()
+    
+    # Log request
+    logger.info(f"Request: {request.method} {request.url.path}")
+    
+    # Process request
     response = await call_next(request)
+    
+    # Calculate processing time
+    process_time = time.time() - start_time
+    
+    # Add custom header
+    response.headers["X-Process-Time"] = str(process_time)
+    
+    # Log response
+    logger.info(
+        f"Response: {request.method} {request.url.path} "
+        f"- Status: {response.status_code} - Time: {process_time:.3f}s"
+    )
+    
     return response
 
-# API Keys
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-SITE_URL = "https://www.bigfat.ai" 
-SITE_NAME = "BIGFAT AI"
 
-# Data Models
-class ChatRequest(BaseModel):
-    message: str
-    history: list = []
+# Global exception handler
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    """Handle all unhandled exceptions."""
+    logger.error(f"Unhandled exception: {exc}", exc_info=True)
+    
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content={
+            "detail": "Internal server error",
+            "path": str(request.url.path)
+        }
+    )
 
-def load_knowledgebase():
-    try:
-        # Knowledgebase is now in backend/data/ for security
-        file_path = os.path.join(os.path.dirname(__file__), "data", "knowledgebase.txt")
-        with open(file_path, "r") as f:
-            return f.read()
-    except Exception as e:
-        print(f"Error loading knowledgebase: {e}")
-        return "BIGFAT AI Labs is an enterprise AI company."
 
-KNOWLEDGE_BASE = load_knowledgebase()
+# Include API routers
+app.include_router(api_router, prefix="/api")
 
+
+# Root endpoint
 @app.get("/")
-def read_root():
-    return {"status": "Chatbot Backend Running"}
-
-@app.post("/api/chat")
-def chat(request: ChatRequest):
-    if not OPENROUTER_API_KEY:
-        return {
-            "response": "I am connected, but the API Key is missing. Please add OPENROUTER_API_KEY to backend/.env."
-        }
-
-    # Construct the system prompt
-    messages = [
-        {
-            "role": "system",
-            "content": f"""You are a helpful support assistant for BIGFAT AI Labs. 
-            Your goal is to provide concise, to-the-point answers using the following context. 
-            Avoid long paragraphs. Use clear, short sentences or bullet points. 
-            If the answer is not in the context, politely say you don't know and offer to connect them to human support.
-
-            Context:
-            {KNOWLEDGE_BASE}
-            """
-        }
-    ]
-    
-    # Add conversation history (optional: limit length)
-    messages.extend(request.history)
-    
-    # Add current user message
-    messages.append({"role": "user", "content": request.message})
-
-    # Call OpenRouter API
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "HTTP-Referer": SITE_URL,
-        "X-Title": SITE_NAME,
-        "Content-Type": "application/json"
-    }
-    
-    data = {
-        "model": "openai/gpt-4o", 
-        "messages": messages
+async def root():
+    """Root endpoint - API information."""
+    return {
+        "service": settings.APP_NAME,
+        "version": settings.APP_VERSION,
+        "status": "running",
+        "environment": settings.ENVIRONMENT,
+        "docs": "/docs" if settings.is_development else "disabled"
     }
 
-    try:
-        response = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers=headers,
-            json=data
-        )
-        response.raise_for_status()
-        result = response.json()
-        ai_message = result['choices'][0]['message']['content']
-        return {"response": ai_message}
-    
-    except Exception as e:
-        print(f"API Error: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
 
+# Health check endpoint
+@app.get("/health")
+async def health():
+    """
+    Global health check endpoint.
+    Checks connectivity to all required services.
+    """
+    mongodb_status = await db_manager.health_check()
+    
+    redis_status = None
+    if cache_manager.is_enabled:
+        redis_status = await cache_manager.health_check()
+    
+    services = {
+        "mongodb": "healthy" if mongodb_status else "unhealthy",
+        "redis": "healthy" if redis_status else ("disabled" if not cache_manager.is_enabled else "unhealthy"),
+        "api": "healthy"
+    }
+    
+    overall_status = "healthy" if mongodb_status else "degraded"
+    
+    return {
+        "status": overall_status,
+        "services": services,
+        "version": settings.APP_VERSION
+    }
+
+
+# Run with uvicorn if executed directly
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    
+    uvicorn.run(
+        "main:app",
+        host=settings.HOST,
+        port=settings.PORT,
+        reload=settings.is_development,
+        log_level=settings.LOG_LEVEL.lower()
+    )
