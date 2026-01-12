@@ -11,7 +11,7 @@ const teamMembers = [
         name: 'Gopal Kapoor',
         role: 'Co-Founder',
         image: gopalKapoorPhoto,
-        bio: 'Visionary leader with 15+ years in Buisness and Product',
+        bio: 'Visionary leader with 15+ years in Business and Product',
         social: {
             linkedin: '#',
             twitter: '#',
@@ -23,7 +23,7 @@ const teamMembers = [
         role: 'Co-Founder',
         image: amiteshMauryaPhoto,
         imgPosition: 'object-top',
-        bio: 'NIT Trichy graduate With 8+ years of experience in IT services and  enterprise GenAI products and custom LLM applications to AI agents, RAG systems',
+        bio: 'NIT Trichy graduate With 8+ years of experience in IT services and enterprise GenAI products and custom LLM applications to AI agents, RAG systems',
         social: {
             linkedin: '#',
             twitter: '#',
@@ -45,7 +45,7 @@ const teamMembers = [
         name: 'Abhi Bhardwaj',
         role: 'Business Developemt',
         image: abhiBhardwajPhoto,
-        bio: '6+ experience in Buisness Development',
+        bio: '6+ experience in Business Development',
         social: {
             linkedin: '#',
             twitter: '#',
