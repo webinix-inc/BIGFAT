@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Zap, Shield, Users, BarChart3, Cpu } from 'lucide-react';
 
 const features = [
@@ -28,7 +29,7 @@ const features = [
   },
 ];
 
-const WhyChooseSection = () => {
+const WhyChooseSection = memo(() => {
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       {/* Background elements */}
@@ -122,6 +123,8 @@ const WhyChooseSection = () => {
       </div>
     </section>
   );
-};
+});
+
+WhyChooseSection.displayName = 'WhyChooseSection';
 
 export default WhyChooseSection;

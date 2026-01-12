@@ -44,6 +44,8 @@ const Blog = () => {
                                             src={post.image}
                                             alt={post.title}
                                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                            loading="lazy"
+                                            decoding="async"
                                         />
                                         <div className="absolute top-4 left-4">
                                             <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full">

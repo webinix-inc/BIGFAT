@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -29,7 +30,7 @@ const socialLinks = [
   { icon: Mail, href: '#', label: 'Email' },
 ];
 
-const Footer = () => {
+const Footer = memo(() => {
   return (
     <footer className="py-16 border-t border-foreground/10 relative">
       <div className="absolute inset-0 bg-gradient-to-t from-glow-cyan/5 to-transparent pointer-events-none" />
@@ -144,6 +145,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

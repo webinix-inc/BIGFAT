@@ -1,11 +1,12 @@
+import aiHero from '@/assets/ai-hero1.png';
+import elements from '@/assets/Elements.svg';
+import modelGlow from '@/assets/Model Glow.svg';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import aiHero from '@/assets/ai-hero1.png';
-import modelGlow from '@/assets/Model Glow.svg';
-import elements from '@/assets/Elements.svg';
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
   const navigate = useNavigate();
 
   return (
@@ -73,6 +74,8 @@ const HeroSection = () => {
                   alt=""
                   className="w-full h-auto opacity-90 brightness-125"
                   style={{ maxWidth: '980px' }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -82,6 +85,9 @@ const HeroSection = () => {
                   src={aiHero}
                   alt="Futuristic AI humanoid representing advanced artificial intelligence"
                   className="relative w-full h-auto object-contain border-0 outline-none ring-0 shadow-none"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   style={{
                     maxWidth: 'none',
                     width: '100%',
@@ -103,6 +109,8 @@ const HeroSection = () => {
                   alt=""
                   className="h-full opacity-80 brightness-125"
                   style={{ maxWidth: '540px', mixBlendMode: 'screen', paddingRight: '16px' }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -143,6 +151,8 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';
 
 export default HeroSection;

@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Rocket } from 'lucide-react';
 
-const CTASection = () => {
+const CTASection = memo(() => {
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background effects */}
@@ -40,6 +41,8 @@ const CTASection = () => {
       </div>
     </section>
   );
-};
+});
+
+CTASection.displayName = 'CTASection';
 
 export default CTASection;

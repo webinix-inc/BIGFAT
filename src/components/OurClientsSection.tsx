@@ -1,16 +1,17 @@
-import { motion } from 'framer-motion';
 import aiimsLogo from '@/assets/AIIMS ANAESTHESIA.jpeg';
+import aiobLogo from '@/assets/AIOB.jpeg';
+import akjLogo from '@/assets/AKJ Academy.webp';
+import cosmosLogo from '@/assets/Cosmos Bakery.jpeg';
 import creativePujariLogo from '@/assets/Creative Pujari.png';
+import dookLogo from '@/assets/Dook International.png';
+import hallekLogo from '@/assets/Hallek Technologies.jpeg';
+import houseLogo from '@/assets/House Technologies.jpeg';
 import sqrftLogo from '@/assets/SQRFT.png';
 import shilpaniLogo from '@/assets/Shilpani art and craft.png';
 import travelPujariLogo from '@/assets/Travel pujari.png';
 import wakadeLogo from '@/assets/Wakade Classes.jpeg';
-import dookLogo from '@/assets/Dook International.png';
-import aiobLogo from '@/assets/AIOB.jpeg';
-import akjLogo from '@/assets/AKJ Academy.webp';
-import hallekLogo from '@/assets/Hallek Technologies.jpeg';
-import cosmosLogo from '@/assets/Cosmos Bakery.jpeg';
-import houseLogo from '@/assets/House Technologies.jpeg';
+import { motion } from 'framer-motion';
+import { memo } from 'react';
 
 const clients = [
     { name: 'Dook International', logo: dookLogo },
@@ -27,7 +28,7 @@ const clients = [
     { name: 'Wakade Classes', logo: wakadeLogo },
 ];
 
-const OurClientsSection = () => {
+const OurClientsSection = memo(() => {
     return (
         <section id="clients" className="py-24 relative overflow-hidden">
             {/* Background */}
@@ -77,6 +78,8 @@ const OurClientsSection = () => {
                                             alt={client.name}
                                             className={`w-full h-full object-contain group-hover:scale-125 transition-transform duration-700 relative z-10 ${(client.name.includes('SQRFT') || client.name.includes('Shilpani') || client.name.includes('Cosmos') || client.name.includes('House')) ? 'contrast-[1.15] brightness-[1.02] saturate-[1.1]' : ''
                                                 }`}
+                                            loading="lazy"
+                                            decoding="async"
                                         />
                                     </div>
 
@@ -95,7 +98,9 @@ const OurClientsSection = () => {
             </div>
         </section>
     );
-};
+});
+
+OurClientsSection.displayName = 'OurClientsSection';
 
 export default OurClientsSection;
 

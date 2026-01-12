@@ -1,0 +1,30 @@
+# Files to ignore during Render deployment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+venv/
+ENV/
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.log
+
+# Docker files (not needed on Render)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Test files
+test_*.py
+*_test.py
+tests/
+
+# Documentation (optional - keep if you want)
+# README.md
+# QUICKSTART.md

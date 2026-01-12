@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Twitter } from 'lucide-react';
 import gopalKapoorPhoto from '@/assets/Gopal Kapoor.jpeg';
@@ -20,6 +21,7 @@ const teamMembers = [
         name: 'Amitesh Maurya',
         role: 'Co-Founder',
         image: amiteshMauryaPhoto,
+        imgPosition: 'object-top',
         bio: 'NIT Trichy graduate With 8+ years of experience in IT services and  enterprise GenAI products and custom LLM applications to AI agents, RAG systems',
         social: {
             linkedin: '#',
@@ -52,7 +54,7 @@ const teamMembers = [
 
 ];
 
-const TeamsSection = () => {
+const TeamsSection = memo(() => {
     return (
         <section id="team" className="py-24 relative overflow-hidden">
             {/* Background */}
@@ -94,7 +96,9 @@ const TeamsSection = () => {
                                         <img
                                             src={member.image}
                                             alt={member.name}
-                                            className="w-full h-full object-cover"
+                                            className={`w-full h-full object-cover ${member.imgPosition || 'object-center'}`}
+                                            loading="lazy"
+                                            decoding="async"
                                         />
                                     ) : (
                                         <div className="w-32 h-32 rounded-full bg-gradient-to-br from-glow-cyan to-glow-violet flex items-center justify-center text-4xl font-bold">
@@ -138,7 +142,9 @@ const TeamsSection = () => {
             </div>
         </section>
     );
-};
+});
+
+TeamsSection.displayName = 'TeamsSection';
 
 export default TeamsSection;
 

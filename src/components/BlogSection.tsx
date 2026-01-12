@@ -1,9 +1,10 @@
-import { ArrowRight, Calendar, User, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { blogPosts } from '@/data/blogPosts';
+import { ArrowRight, Calendar, User } from 'lucide-react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-const BlogSection = () => {
+const BlogSection = memo(() => {
     return (
         <section id="blog" className="py-24 relative overflow-hidden">
             {/* Background elements */}
@@ -37,6 +38,8 @@ const BlogSection = () => {
                                     src={post.image}
                                     alt={post.title}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 <div className="absolute top-4 left-4">
                                     <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full">
@@ -90,6 +93,8 @@ const BlogSection = () => {
             </div>
         </section>
     );
-};
+});
+
+BlogSection.displayName = 'BlogSection';
 
 export default BlogSection;

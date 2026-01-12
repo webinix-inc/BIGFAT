@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { Send, ArrowRight, ExternalLink, Bot, Sparkles, MessageCircle } from 'lucide-react';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 interface ChatHomeProps {
     onStartChat: (initialMessage?: string) => void;

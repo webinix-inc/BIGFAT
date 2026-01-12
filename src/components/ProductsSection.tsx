@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { MessageCircle, Brain, LineChart, Workflow, Cloud } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -34,7 +35,7 @@ const products = [
   },
 ];
 
-const ProductsSection = () => {
+const ProductsSection = memo(() => {
   return (
     <section id="products" className="py-24 relative">
       {/* Background */}
@@ -102,6 +103,8 @@ const ProductsSection = () => {
       </div>
     </section>
   );
-};
+});
+
+ProductsSection.displayName = 'ProductsSection';
 
 export default ProductsSection;

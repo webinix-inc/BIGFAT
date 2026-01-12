@@ -78,6 +78,9 @@ const BlogPost = () => {
                                 src={post.image}
                                 alt={post.title}
                                 className="w-full h-full object-cover"
+                                loading="eager"
+                                fetchPriority="high"
+                                decoding="async"
                             />
                         </div>
 

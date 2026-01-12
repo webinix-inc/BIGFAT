@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Brain, MessageSquare, Building2, Bot, Code2, Layers } from 'lucide-react';
 
 const solutions = [
@@ -33,7 +34,7 @@ const solutions = [
   },
 ];
 
-const SolutionsSection = () => {
+const SolutionsSection = memo(() => {
   return (
     <section id="solutions" className="py-24 relative">
       {/* Background */}
@@ -78,6 +79,8 @@ const SolutionsSection = () => {
       </div>
     </section>
   );
-};
+});
+
+SolutionsSection.displayName = 'SolutionsSection';
 
 export default SolutionsSection;
