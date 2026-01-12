@@ -58,7 +58,7 @@ const OurClientsSection = () => {
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 65,
+                                duration: 40,
                                 ease: "linear",
                             },
                         }}
