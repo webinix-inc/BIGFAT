@@ -4,6 +4,7 @@ import { Linkedin, Github, Twitter } from 'lucide-react';
 import gopalKapoorPhoto from '@/assets/Gopal Kapoor.jpeg';
 import amiteshMauryaPhoto from '@/assets/Amitesh Maurya.jpeg';
 import abhiBhardwajPhoto from '@/assets/Abhi Bhardwaj.jpeg';
+import adityaRaanaPhoto from '@/assets/Aditya Raana.jpeg';
 
 const teamMembers = [
     {
@@ -32,7 +33,7 @@ const teamMembers = [
     {
         name: 'Aditya Raana',
         role: 'AI & ML Engineer',
-        image: '/src/assets/team-member-3.jpg',
+        image: adityaRaanaPhoto,
         bio: 'Ex-Cisco, Ex-Google Summer Code of Intern',
         social: {
             linkedin: '#',
