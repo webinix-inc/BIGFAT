@@ -1,4 +1,4 @@
-import aiHero from '@/assets/ai-hero1.png';
+import aiHero from '@/assets/ai-hero1.webp';
 import elements from '@/assets/Elements.svg';
 import modelGlow from '@/assets/Model Glow.svg';
 import { Button } from '@/components/ui/button';

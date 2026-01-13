@@ -1,15 +1,15 @@
-import aiimsLogo from '@/assets/AIIMS ANAESTHESIA.jpeg';
-import aiobLogo from '@/assets/AIOB.jpeg';
+import aiimsLogo from '@/assets/AIIMS ANAESTHESIA.webp';
+import aiobLogo from '@/assets/AIOB.webp';
 import akjLogo from '@/assets/AKJ Academy.webp';
-import cosmosLogo from '@/assets/Cosmos Bakery.jpeg';
-import creativePujariLogo from '@/assets/Creative Pujari.png';
-import dookLogo from '@/assets/Dook International.png';
-import hallekLogo from '@/assets/Hallek Technologies.jpeg';
-import houseLogo from '@/assets/House Technologies.jpeg';
-import sqrftLogo from '@/assets/SQRFT.png';
-import shilpaniLogo from '@/assets/Shilpani art and craft.png';
-import travelPujariLogo from '@/assets/Travel pujari.png';
-import wakadeLogo from '@/assets/Wakade Classes.jpeg';
+import cosmosLogo from '@/assets/Cosmos Bakery.webp';
+import creativePujariLogo from '@/assets/Creative Pujari.webp';
+import dookLogo from '@/assets/Dook International.webp';
+import hallekLogo from '@/assets/Hallek-Technologies.webp';
+import houseLogo from '@/assets/House-Technologies.webp';
+import sqrftLogo from '@/assets/SQRFT.webp';
+import shilpaniLogo from '@/assets/Shilpani-art-and-craft.webp';
+import travelPujariLogo from '@/assets/Travel-pujari.webp';
+import wakadeLogo from '@/assets/Wakade-Classes.webp';
 import { motion } from 'framer-motion';
 import { memo } from 'react';
 

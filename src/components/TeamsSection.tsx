@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Twitter } from 'lucide-react';
-import gopalKapoorPhoto from '@/assets/Gopal Kapoor.jpeg';
-import amiteshMauryaPhoto from '@/assets/Amitesh Maurya.jpeg';
-import abhiBhardwajPhoto from '@/assets/Abhi Bhardwaj.jpeg';
-import adityaRaanaPhoto from '@/assets/Aditya Raana.jpeg';
+import gopalKapoorPhoto from '@/assets/Gopal Kapoor.webp';
+import amiteshMauryaPhoto from '@/assets/Amitesh Maurya.webp';
+import abhiBhardwajPhoto from '@/assets/Abhi Bhardwaj.webp';
+import adityaRaanaPhoto from '@/assets/Aditya Raana.webp';
 
 const teamMembers = [
     {
