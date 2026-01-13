@@ -21,5 +21,13 @@ export default defineConfig(({ mode }) => ({
   build: {
     chunkSizeWarningLimit: 1000,
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          utils: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+        },
+      },
+    },
   },
 }));

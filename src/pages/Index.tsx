@@ -1,15 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import SolutionsSection from '@/components/SolutionsSection';
-import WhyChooseSection from '@/components/WhyChooseSection';
-import ProductsSection from '@/components/ProductsSection';
-import BlogSection from '@/components/BlogSection';
-import OurClientsSection from '@/components/OurClientsSection';
-import ClientTestimonialsSection from '@/components/ClientTestimonialsSection';
-import TeamsSection from '@/components/TeamsSection';
-import CTASection from '@/components/CTASection';
-import Footer from '@/components/Footer';
+import { lazy, Suspense } from 'react';
+const SolutionsSection = lazy(() => import('@/components/SolutionsSection'));
+const WhyChooseSection = lazy(() => import('@/components/WhyChooseSection'));
+const ProductsSection = lazy(() => import('@/components/ProductsSection'));
+const BlogSection = lazy(() => import('@/components/BlogSection'));
+const OurClientsSection = lazy(() => import('@/components/OurClientsSection'));
+const ClientTestimonialsSection = lazy(() => import('@/components/ClientTestimonialsSection'));
+const TeamsSection = lazy(() => import('@/components/TeamsSection'));
+const CTASection = lazy(() => import('@/components/CTASection'));
+const Footer = lazy(() => import('@/components/Footer'));
 import ParticleBackground from '@/components/ParticleBackground';
 
 const Index = () => {
@@ -29,16 +30,20 @@ const Index = () => {
         <Navbar />
         <main id="home">
           <HeroSection />
-          <SolutionsSection />
-          <WhyChooseSection />
-          <ProductsSection />
-          <BlogSection />
-          <OurClientsSection />
-          <ClientTestimonialsSection />
-          <TeamsSection />
-          <CTASection />
+          <Suspense fallback={<div className="h-20" />}>
+            <SolutionsSection />
+            <WhyChooseSection />
+            <ProductsSection />
+            <BlogSection />
+            <OurClientsSection />
+            <ClientTestimonialsSection />
+            <TeamsSection />
+            <CTASection />
+          </Suspense>
         </main>
-        <Footer />
+        <Suspense fallback={<div className="h-20" />}>
+          <Footer />
+        </Suspense>
       </div>
     </>
   );

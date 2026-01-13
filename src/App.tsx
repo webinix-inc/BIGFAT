@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ChatWidget from "./components/Chat/ChatWidget";
 import ScrollToHashElement from "./components/ScrollToHashElement";
 import Index from "./pages/Index";
-import Contact from "./pages/Contact";
+const Contact = lazy(() => import("./pages/Contact"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Blog = lazy(() => import("./pages/Blog"));
