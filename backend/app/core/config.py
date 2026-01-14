@@ -37,7 +37,7 @@ class Settings(BaseSettings):
     )
     
     # OpenRouter API Settings
-    OPENROUTER_API_KEY: Optional[str] = Field(default="", description="OpenRouter API key")
+    OPENROUTER_API_KEY: Optional[str] = Field(default=None, description="OpenRouter API key")
     OPENROUTER_API_URL: str = Field(default="https://openrouter.ai/api/v1/chat/completions")
     OPENROUTER_MODEL: str = Field(default="anthropic/claude-3-haiku", description="Default LLM model")
     OPENROUTER_FALLBACK_MODEL: Optional[str] = Field(default="openai/gpt-3.5-turbo", description="Fallback model")
@@ -45,8 +45,8 @@ class Settings(BaseSettings):
     SITE_NAME: str = Field(default="BIGFAT AI")
     
     # MongoDB Settings
-    MONGODB_URI: str = Field(
-        default="mongodb+srv://kartikbansal9152_db_user:G10meEiqWUJjFtMs@bigfat1.ndxjvfq.mongodb.net/?appName=bigfat1",
+    MONGODB_URI: Optional[str] = Field(
+        default=None,
         description="MongoDB connection URI"
     )
     MONGODB_DATABASE: str = Field(default="chatbot", description="MongoDB database name")

@@ -26,6 +26,11 @@ class DatabaseManager:
         Creates connection pool and verifies connectivity.
         """
         try:
+            if not settings.MONGODB_URI:
+                logger.error("MONGODB_URI is not set in environment variables.")
+                self._is_connected = False
+                return
+
             logger.info(f"Connecting to MongoDB: {settings.MONGODB_DATABASE}")
             
             self.client = AsyncIOMotorClient(
