@@ -36,7 +36,8 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('http://localhost:8000/api/v1/contact/', {
+      const API_URL = import.meta.env.VITE_API_URL || 'https://bigfat-1.onrender.com';
+      const response = await fetch(`${API_URL}/api/v1/contact/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

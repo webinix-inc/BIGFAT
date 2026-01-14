@@ -39,7 +39,7 @@ git push origin main
 3. **Deploy**
    - Click "Create Blueprint Instance"
    - Wait for deployment (2-3 minutes)
-   - Your API will be live at: `https://your-service.onrender.com`
+   - Your API will be live at: `https://bigfat-1.onrender.com`
 
 #### Option B: Manual Setup
 
@@ -72,13 +72,13 @@ Once deployed, test your API:
 
 ```bash
 # Health check
-curl https://your-service.onrender.com/health
+curl https://bigfat-1.onrender.com/health
 
 # API docs
-open https://your-service.onrender.com/docs
+open https://bigfat-1.onrender.com/docs
 
 # Test chat
-curl -X POST https://your-service.onrender.com/api/v1/chatbot/chat \
+curl -X POST https://bigfat-1.onrender.com/api/v1/chatbot/chat \
   -H "Content-Type: application/json" \
   -d '{
     "message": "What services does BIGFAT AI provide?",
@@ -199,7 +199,7 @@ Before going live:
 ### Custom Monitoring
 Access metrics endpoint:
 ```bash
-curl https://your-service.onrender.com/api/v1/chatbot/health
+curl https://bigfat-1.onrender.com/api/v1/chatbot/health
 ```
 
 ## Scaling

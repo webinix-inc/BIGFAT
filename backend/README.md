@@ -79,7 +79,7 @@ The service will start at `http://localhost:8000`
    - `MONGODB_URI` - Your MongoDB connection string
    - `OPENROUTER_API_KEY` - Your OpenRouter API key
 
-Your API will be live at: `https://your-service.onrender.com`
+Your API will be live at: `https://bigfat-1.onrender.com`
 
 ### Docker Deployment (Optional)
 

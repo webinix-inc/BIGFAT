@@ -1,0 +1,43 @@
+services:
+  # FastAPI Backend Service
+  - type: web
+    name: bigfat-chatbot-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    rootDir: backend
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: LOG_LEVEL
+        value: INFO
+      - key: JSON_LOGS
+        value: true
+      - key: MONGODB_DATABASE
+        value: Bigfat
+      - key: MONGODB_COLLECTION
+        value: chatbot
+      - key: OPENROUTER_MODEL
+        value: anthropic/claude-3-haiku
+      - key: OPENROUTER_FALLBACK_MODEL
+        value: openai/gpt-3.5-turbo
+      - key: REDIS_ENABLED
+        value: false
+      - key: CACHE_ENABLED
+        value: false
+      - key: RATE_LIMIT_ENABLED
+        value: false
+      - key: MAX_CONVERSATION_HISTORY
+        value: 10
+      - key: MAX_TOKENS
+        value: 4000
+      - key: TEMPERATURE
+        value: 0.7
+      - key: STREAM_ENABLED
+        value: true
+      - key: CORS_ORIGINS
+        value: http://localhost:5173,http://localhost:8080,https://www.bigfat.ai,https://bigfat.ai
+    healthCheckPath: /health
+    autoDeploy: true

@@ -47,7 +47,7 @@ const ChatWindow = ({ initialMessage, onClearInitialMessage }: ChatWindowProps) 
         try {
             const history = newMessages.slice(-6);
 
-            const API_URL = import.meta.env.VITE_API_URL || 'https://bigfat.onrender.com';
+            const API_URL = import.meta.env.VITE_API_URL || 'https://bigfat-1.onrender.com';
             const response = await fetch(`${API_URL}/api/v1/chatbot/chat`, {
                 method: 'POST',
                 headers: {
