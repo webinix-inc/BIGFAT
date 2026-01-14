@@ -94,7 +94,7 @@ class ChatResponse(BaseModel):
                 "session_id": "session_abc",
                 "cached": False,
                 "tokens_used": 150,
-                "model": "openai/gpt-4o",
+                "model": "anthropic/claude-3-haiku",
                 "timestamp": "2026-01-09T14:00:00Z"
             }
         }
@@ -197,7 +197,7 @@ class ConversationDocument(BaseModel):
                 "created_at": "2026-01-09T14:00:00Z",
                 "updated_at": "2026-01-09T14:00:00Z",
                 "metadata": {
-                    "model": "openai/gpt-4o",
+                    "model": "anthropic/claude-3-haiku",
                     "tokens_used": 50
                 }
             }

@@ -6,7 +6,20 @@ import amiteshMauryaPhoto from '@/assets/Amitesh Maurya.webp';
 import abhiBhardwajPhoto from '@/assets/Abhi Bhardwaj.webp';
 import adityaRaanaPhoto from '@/assets/Aditya Raana.webp';
 
-const teamMembers = [
+interface TeamMember {
+    name: string;
+    role: string;
+    image: string;
+    bio: string;
+    imgPosition?: string;
+    social: {
+        linkedin: string;
+        twitter: string;
+        github: string;
+    };
+}
+
+const teamMembers: TeamMember[] = [
     {
         name: 'Gopal Kapoor',
         role: 'Co-Founder',

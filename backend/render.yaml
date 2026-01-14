@@ -31,7 +31,7 @@ services:
       - key: OPENROUTER_API_KEY
         sync: false  # Set via dashboard - keep secret
       - key: OPENROUTER_MODEL
-        value: openai/gpt-4o
+        value: anthropic/claude-3-haiku
       - key: OPENROUTER_FALLBACK_MODEL
         value: openai/gpt-3.5-turbo
       

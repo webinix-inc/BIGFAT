@@ -64,9 +64,11 @@ const Navbar = memo(() => {
               </svg>
             </Button>
           </a>
-          <Button variant="outline" size="default" className="rounded-full">
-            Request a Quote
-          </Button>
+          <Link to="/contact">
+            <Button variant="outline" size="default" className="rounded-full">
+              Request a Quote
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -92,9 +94,11 @@ const Navbar = memo(() => {
                 {link.name}
               </Link>
             ))}
-            <Button variant="hero" className="mt-2">
-              Request a Quote
-            </Button>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button variant="hero" className="mt-2 text-left justify-start px-0 w-full">
+                Request a Quote
+              </Button>
+            </Link>
           </nav>
         </div>
       )}

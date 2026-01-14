@@ -21,6 +21,8 @@ const ChatWindow = ({ initialMessage, onClearInitialMessage }: ChatWindowProps) 
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
+    const [sessionId, setSessionId] = useState<string | null>(() => localStorage.getItem('chat_session_id'));
+
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
@@ -46,14 +48,15 @@ const ChatWindow = ({ initialMessage, onClearInitialMessage }: ChatWindowProps) 
             const history = newMessages.slice(-6);
 
             const API_URL = import.meta.env.VITE_API_URL || 'https://bigfat.onrender.com';
-            const response = await fetch(`${API_URL}/api/chat`, {
+            const response = await fetch(`${API_URL}/api/v1/chatbot/chat`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     message: messageToSend,
-                    history: history
+                    history: history,
+                    session_id: sessionId
                 }),
             });
 
@@ -63,6 +66,12 @@ const ChatWindow = ({ initialMessage, onClearInitialMessage }: ChatWindowProps) 
 
             const data = await response.json();
             setMessages([...newMessages, { role: 'assistant', content: data.response }]);
+
+            // Update session ID if returned
+            if (data.session_id) {
+                setSessionId(data.session_id);
+                localStorage.setItem('chat_session_id', data.session_id);
+            }
         } catch (error) {
             console.error("Chat Error:", error);
             setMessages([...newMessages, { role: 'system', content: "Sorry, I'm having trouble connecting to the server. Please make sure the backend is running." }]);

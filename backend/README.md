@@ -117,7 +117,7 @@ POST /api/v1/chatbot/chat
   "session_id": "session_abc",
   "cached": false,
   "tokens_used": 150,
-  "model": "openai/gpt-4o",
+  "model": "anthropic/claude-3-haiku",
   "timestamp": "2026-01-09T14:00:00Z"
 }
 ```

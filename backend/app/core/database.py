@@ -78,7 +78,7 @@ class DatabaseManager:
             bool: True if connection is healthy, False otherwise
         """
         try:
-            if not self.client:
+            if self.client is None:
                 return False
             
             await self.client.admin.command('ping')
@@ -122,11 +122,29 @@ class DatabaseManager:
         Raises:
             RuntimeError: If database connection is not established
         """
-        if not self.db:
+        if self.db is None:
             raise RuntimeError("Database connection not established. Call connect() first.")
         
         coll_name = collection_name or settings.MONGODB_COLLECTION
         return self.db[coll_name]
+    
+    def get_database_by_name(self, db_name: str) -> AsyncIOMotorDatabase:
+        """
+        Get a specific database by name.
+        
+        Args:
+            db_name: Name of the database to retrieve
+            
+        Returns:
+            AsyncIOMotorDatabase: MongoDB database instance
+            
+        Raises:
+            RuntimeError: If database connection is not established
+        """
+        if self.client is None:
+            raise RuntimeError("Database connection not established. Call connect() first.")
+            
+        return self.client[db_name]
     
     @property
     def is_connected(self) -> bool:

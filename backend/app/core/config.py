@@ -32,20 +32,21 @@ class Settings(BaseSettings):
             "http://127.0.0.1:3000",
             "https://www.bigfat.ai",
             "https://bigfat.ai",
+
         ]
     )
     
     # OpenRouter API Settings
     OPENROUTER_API_KEY: Optional[str] = Field(default="", description="OpenRouter API key")
     OPENROUTER_API_URL: str = Field(default="https://openrouter.ai/api/v1/chat/completions")
-    OPENROUTER_MODEL: str = Field(default="openai/gpt-4o", description="Default LLM model")
+    OPENROUTER_MODEL: str = Field(default="anthropic/claude-3-haiku", description="Default LLM model")
     OPENROUTER_FALLBACK_MODEL: Optional[str] = Field(default="openai/gpt-3.5-turbo", description="Fallback model")
     SITE_URL: str = Field(default="https://www.bigfat.ai")
     SITE_NAME: str = Field(default="BIGFAT AI")
     
     # MongoDB Settings
     MONGODB_URI: str = Field(
-        default="mongodb+srv://kartikbansal9152_db_user:kartikbansal9152_db_user@bigfat1.y7mpuap.mongodb.net/bigfat?retryWrites=true&w=majority&appName=bigfat1",
+        default="mongodb+srv://kartikbansal9152_db_user:G10meEiqWUJjFtMs@bigfat1.ndxjvfq.mongodb.net/?appName=bigfat1",
         description="MongoDB connection URI"
     )
     MONGODB_DATABASE: str = Field(default="chatbot", description="MongoDB database name")
@@ -53,6 +54,10 @@ class Settings(BaseSettings):
     MONGODB_MAX_POOL_SIZE: int = Field(default=10, description="MongoDB connection pool size")
     MONGODB_MIN_POOL_SIZE: int = Field(default=1)
     MONGODB_TIMEOUT_MS: int = Field(default=5000, description="MongoDB connection timeout in milliseconds")
+    
+    # Contact Database Settings
+    MONGODB_CONTACT_DATABASE: str = Field(default="contact", description="MongoDB database name for contacts")
+    MONGODB_ENQUIRY_COLLECTION: str = Field(default="enquiry", description="MongoDB collection for contact enquiries")
     
     # Redis Settings (Optional - for future use)
     REDIS_ENABLED: bool = Field(default=False, description="Enable Redis for caching and rate limiting")
