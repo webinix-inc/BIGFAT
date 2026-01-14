@@ -53,7 +53,7 @@ class Settings(BaseSettings):
     MONGODB_COLLECTION: str = Field(default="history", description="MongoDB collection for chatbot conversations")
     MONGODB_MAX_POOL_SIZE: int = Field(default=10, description="MongoDB connection pool size")
     MONGODB_MIN_POOL_SIZE: int = Field(default=1)
-    MONGODB_TIMEOUT_MS: int = Field(default=5000, description="MongoDB connection timeout in milliseconds")
+    MONGODB_TIMEOUT_MS: int = Field(default=15000, description="MongoDB connection timeout in milliseconds")
     
     # Contact Database Settings
     MONGODB_CONTACT_DATABASE: str = Field(default="contact", description="MongoDB database name for contacts")

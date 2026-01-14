@@ -39,8 +39,10 @@ class DatabaseManager:
                 minPoolSize=settings.MONGODB_MIN_POOL_SIZE,
                 serverSelectionTimeoutMS=settings.MONGODB_TIMEOUT_MS,
                 connectTimeoutMS=settings.MONGODB_TIMEOUT_MS,
+                socketTimeoutMS=settings.MONGODB_TIMEOUT_MS,
+                retryWrites=True,
+                w="majority",
                 tls=True,
-                tlsAllowInvalidCertificates=True,
             )
             
             # Select database
