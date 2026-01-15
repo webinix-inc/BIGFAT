@@ -5,6 +5,7 @@ import { lazy, Suspense } from 'react';
 const SolutionsSection = lazy(() => import('@/components/SolutionsSection'));
 const WhyChooseSection = lazy(() => import('@/components/WhyChooseSection'));
 const ProductsSection = lazy(() => import('@/components/ProductsSection'));
+const ProjectsSection = lazy(() => import('@/components/ProjectsSection')); // Added ProjectsSection
 const BlogSection = lazy(() => import('@/components/BlogSection'));
 const OurClientsSection = lazy(() => import('@/components/OurClientsSection'));
 const ClientTestimonialsSection = lazy(() => import('@/components/ClientTestimonialsSection'));
@@ -34,6 +35,7 @@ const Index = () => {
             <SolutionsSection />
             <WhyChooseSection />
             <ProductsSection />
+            <ProjectsSection /> {/* Added ProjectsSection */}
             <BlogSection />
             <OurClientsSection />
             <ClientTestimonialsSection />
