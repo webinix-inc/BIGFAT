@@ -6,11 +6,12 @@ import { Link } from 'react-router-dom';
 const navLinks = [
   { name: 'Home', href: '/#home' },
   { name: 'AI Solutions', href: '/#solutions' },
-  { name: 'About', href: '/#about' },
+  { name: 'About', href: '/about' },
   { name: 'Products', href: '/#products' },
   { name: 'Team', href: '/#team' },
-  { name: 'Projects', href: '/#projects' },
+  { name: 'Case Studies', href: '/case-studies' },
   { name: 'Blog', href: '/#blog' },
+  { name: 'Security', href: '/security-compliance' },
 ] as const;
 
 const Navbar = memo(() => {
@@ -64,9 +65,9 @@ const Navbar = memo(() => {
               </svg>
             </Button>
           </a>
-          <Link to="/contact">
-            <Button variant="outline" size="default" className="rounded-full">
-              Request a Quote
+          <Link to="/appointment">
+            <Button variant="default" size="default" className="rounded-full">
+              Book Appointment
             </Button>
           </Link>
         </div>
@@ -94,9 +95,9 @@ const Navbar = memo(() => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button variant="hero" className="mt-2 text-left justify-start px-0 w-full">
-                Request a Quote
+            <Link to="/appointment" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button variant="outline" className="mt-2 text-left justify-start px-0 w-full">
+                Book Appointment
               </Button>
             </Link>
           </nav>

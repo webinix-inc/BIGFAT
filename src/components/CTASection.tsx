@@ -32,9 +32,11 @@ const CTASection = memo(() => {
                 Start Your AI Journey
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="outline" size="lg">
-                Schedule a Demo
-              </Button>
+              <a href="https://cal.com/bigfat-ai-tasbkl" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  Schedule a Demo
+                </Button>
+              </a>
             </div>
           </div>
         </div>

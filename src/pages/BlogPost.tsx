@@ -20,10 +20,55 @@ const BlogPost = () => {
             <Helmet>
                 <title>{`${post.title} - BIGFAT AI Blog`}</title>
                 <meta name="description" content={post.excerpt} />
+                <meta name="keywords" content={`${post.title}, BIGFAT AI blog, ${post.category}, AI insights, generative AI, enterprise AI`} />
+                
+                {/* Open Graph Tags */}
                 <meta property="og:title" content={post.title} />
                 <meta property="og:description" content={post.excerpt} />
+                <meta property="og:type" content="article" />
+                <meta property="og:url" content={`https://bigfatai.com/blog/${post.slug}`} />
+                <meta property="og:site_name" content="BIGFAT AI Labs" />
                 <meta property="og:image" content={post.image} />
+                <meta property="article:section" content={post.category} />
+                <meta property="article:published_time" content={post.date} />
+                
+                {/* Twitter Card Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={post.title} />
+                <meta name="twitter:description" content={post.excerpt} />
+                <meta name="twitter:image" content={post.image} />
+                
+                {/* Canonical URL */}
+                <link rel="canonical" href={`https://bigfatai.com/blog/${post.slug}`} />
+                
+                {/* Structured Data */}
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": post.title,
+                    "description": post.excerpt,
+                    "image": post.image,
+                    "author": {
+                      "@type": "Organization",
+                      "name": post.author
+                    },
+                    "publisher": {
+                      "@type": "Organization",
+                      "name": "BIGFAT AI Labs",
+                      "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://bigfatai.com/logo.png"
+                      }
+                    },
+                    "datePublished": post.date,
+                    "dateModified": post.date,
+                    "mainEntityOfPage": {
+                      "@type": "WebPage",
+                      "@id": `https://bigfatai.com/blog/${post.slug}`
+                    }
+                  })}
+                </script>
             </Helmet>
 
             <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -81,6 +126,8 @@ const BlogPost = () => {
                                 loading="eager"
                                 fetchPriority="high"
                                 decoding="async"
+                                width={960}
+                                height={540}
                             />
                         </div>
 

@@ -63,11 +63,50 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us - BIGFAT AI</title>
+        <title>Contact Us - BIGFAT AI Labs | Enterprise AI Solutions</title>
         <meta
           name="description"
-          content="Get in touch with BIGFAT AI for enterprise AI and Generative AI solutions, custom development, and partnerships."
+          content="Get in touch with BIGFAT AI for enterprise AI and Generative AI solutions, custom development, and partnerships. Contact our AI experts today."
         />
+        <meta name="keywords" content="contact BIGFAT AI, enterprise AI contact, AI solutions inquiry, custom AI development, AI partnership, AI consultation" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Contact Us - BIGFAT AI Labs | Enterprise AI Solutions" />
+        <meta property="og:description" content="Get in touch with BIGFAT AI for enterprise AI and Generative AI solutions, custom development, and partnerships." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://bigfatai.com/contact" />
+        <meta property="og:site_name" content="BIGFAT AI Labs" />
+        <meta property="og:image" content="https://bigfatai.com/og-image.jpg" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us - BIGFAT AI Labs | Enterprise AI Solutions" />
+        <meta name="twitter:description" content="Get in touch with BIGFAT AI for enterprise AI and Generative AI solutions, custom development, and partnerships." />
+        <meta name="twitter:image" content="https://bigfatai.com/twitter-image.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://bigfatai.com/contact" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact BIGFAT AI Labs",
+            "description": "Contact BIGFAT AI Labs for enterprise AI solutions, custom development, and partnerships",
+            "url": "https://bigfatai.com/contact",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "BIGFAT AI Labs",
+              "url": "https://bigfatai.com",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "availableLanguage": ["English"]
+              }
+            }
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">

@@ -6,6 +6,11 @@ import ChatWidget from "./components/Chat/ChatWidget";
 import ScrollToHashElement from "./components/ScrollToHashElement";
 import Index from "./pages/Index";
 const Contact = lazy(() => import("./pages/Contact"));
+const Appointment = lazy(() => import("./pages/Appointment"));
+const SecurityCompliance = lazy(() => import("./pages/SecurityCompliance"));
+const About = lazy(() => import("./pages/About"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -30,6 +35,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/appointment" element={<Appointment />} />
+            <Route path="/security-compliance" element={<SecurityCompliance />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />

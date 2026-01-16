@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Twitter } from 'lucide-react';
 import gopalKapoorPhoto from '@/assets/Gopal Kapoor.webp';
-import amiteshMauryaPhoto from '@/assets/Amitesh Maurya.webp';
+import amiteshMauryaPhoto from '@/assets/Amitesh Maurya.png';
 import abhiBhardwajPhoto from '@/assets/Abhi Bhardwaj.webp';
 import adityaRaanaPhoto from '@/assets/Aditya Raana.webp';
 
@@ -113,6 +113,8 @@ const TeamsSection = memo(() => {
                                             className={`w-full h-full object-cover ${member.imgPosition || 'object-center'}`}
                                             loading="lazy"
                                             decoding="async"
+                                            width={320}
+                                            height={320}
                                         />
                                     ) : (
                                         <div className="w-32 h-32 rounded-full bg-gradient-to-br from-glow-cyan to-glow-violet flex items-center justify-center text-4xl font-bold">

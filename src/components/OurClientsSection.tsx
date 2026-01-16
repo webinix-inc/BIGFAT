@@ -80,6 +80,8 @@ const OurClientsSection = memo(() => {
                                                 }`}
                                             loading="lazy"
                                             decoding="async"
+                                            width={128}
+                                            height={128}
                                         />
                                     </div>
 

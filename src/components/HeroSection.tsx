@@ -75,7 +75,10 @@ const HeroSection = memo(() => {
                   className="w-full h-auto opacity-90 brightness-125"
                   style={{ maxWidth: '980px' }}
                   loading="lazy"
+                  fetchPriority="low"
                   decoding="async"
+                  width={980}
+                  height={980}
                 />
               </div>
 
@@ -88,6 +91,8 @@ const HeroSection = memo(() => {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  width={1200}
+                  height={1200}
                   style={{
                     maxWidth: 'none',
                     width: '100%',
@@ -110,7 +115,10 @@ const HeroSection = memo(() => {
                   className="h-full opacity-80 brightness-125"
                   style={{ maxWidth: '540px', mixBlendMode: 'screen', paddingRight: '16px' }}
                   loading="lazy"
+                  fetchPriority="low"
                   decoding="async"
+                  width={540}
+                  height={540}
                 />
               </div>
 
