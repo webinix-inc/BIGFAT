@@ -1,6 +1,5 @@
 import { memo, useState } from 'react';
 import { Play } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const ProjectsSection = memo(() => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -11,7 +10,7 @@ const ProjectsSection = memo(() => {
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
                     {/* Left Column: Content */}
-                    <div className="text-left order-2 md:order-1">
+                    <div className="text-left order-2 md:order-1 animate-fade-up" style={{ animationDelay: '0.2s' }}>
                         <span className="text-primary text-sm font-semibold uppercase tracking-wider">
                             BIGFAT AI Lab
                         </span>
@@ -34,15 +33,24 @@ const ProjectsSection = memo(() => {
                     </div>
 
                     {/* Right Column: Video (Smaller Footprint) */}
-                    <div className="order-1 md:order-2">
+                    <div className="order-1 md:order-2 animate-fade-up" style={{ animationDelay: '0.4s' }}>
                         <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-foreground/10 bg-black/50 group hover:ring-2 ring-primary/20 transition-all duration-300">
                             {!isPlaying ? (
                                 <div
-                                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                                    className="absolute inset-0 flex items-center justify-center cursor-pointer focus:outline-none"
                                     onClick={() => setIsPlaying(true)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            setIsPlaying(true);
+                                        }
+                                    }}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label="Play Demo Video"
                                 >
                                     {/* Thumbnail Background */}
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-violet-900 to-cyan-900 opacity-90 transition-opacity duration-300 group-hover:opacity-100"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-glow-violet/80 to-glow-cyan/80 opacity-90 transition-opacity duration-300 group-hover:opacity-100"></div>
 
                                     {/* Play Button */}
                                     <div className="relative z-10 w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg">
