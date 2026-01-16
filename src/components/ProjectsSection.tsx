@@ -54,17 +54,6 @@ const ProjectsSection = memo(() => {
                                     </div>
                                 </div>
                             ) : (
-<<<<<<< HEAD
-                                <img
-                                    src="https://www.youtube.com/embed/refXmRj3k90?autoplay=1"
-                                    alt="GenAI Abstract Demo"
-                                    className="w-full h-56 object-cover"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width={800}
-                                    height={224}
-                                />
-=======
                                 <iframe
                                     className="w-full h-full"
                                     src="https://www.youtube.com/embed/refXmRj3k90?autoplay=1"
@@ -72,7 +61,6 @@ const ProjectsSection = memo(() => {
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
->>>>>>> 1a400397ea08351ff5726dc23e6a42cdfbc1bf70
                             )}
                         </div>
                     </div>
